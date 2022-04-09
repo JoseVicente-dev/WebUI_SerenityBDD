@@ -32,4 +32,9 @@ public class JobTitlePage {
     public static final Target JOB_CREATED_MESSAGE = Target
             .the("job created message")
             .located(By.cssSelector(".message"));
+
+    public static final Target JOB_TITLE_ROW =Target
+            .the("job title row")
+            .locatedBy("//*/a[contains(text(),'{0}')]");
+
 }
