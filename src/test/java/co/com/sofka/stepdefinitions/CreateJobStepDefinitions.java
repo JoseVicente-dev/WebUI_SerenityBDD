@@ -27,36 +27,48 @@ public class CreateJobStepDefinitions extends SetupWebUI {
 
     @Dado("que estoy en la pagina creacion de trabajos")
     public void queEstoyEnLaPaginaCreacionDeTrabajos() {
-        actorSetupTheBrowser(ACTOR_NAME);
-        theActorInTheSpotlight().wasAbleTo(
-                openLandingPage(),
-                fillTheSignInForm()
-                        .withUsername(AdminLoginValues.USERNAME.getValue())
-                        .andPassword(AdminLoginValues.PASSWORD.getValue()),
-                goToJobTitlePage()
-        );
+        try {
+            actorSetupTheBrowser(ACTOR_NAME);
+            theActorInTheSpotlight().wasAbleTo(
+                    openLandingPage(),
+                    fillTheSignInForm()
+                            .withUsername(AdminLoginValues.USERNAME.getValue())
+                            .andPassword(AdminLoginValues.PASSWORD.getValue()),
+                    goToJobTitlePage()
+            );
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(),e);
+        }
     }
 
     @Cuando("diligencie todos los campos para crear un nuevo trabajo")
     public void diligencieTodosLosCamposParaCrearUnNuevoTrabajo() {
 
-        newJob = generateNewJob(SPANISH_CODE_LANGUAGE.getValue(), COUNTRY_CODE.getValue());
+        try {
+            newJob = generateNewJob(SPANISH_CODE_LANGUAGE.getValue(), COUNTRY_CODE.getValue());
 
-        theActorInTheSpotlight().attemptsTo(
-                createANewJob()
-                        .withJobTitle(newJob.getJobTitle())
-                        .withJobDescription(newJob.getJobDescription())
-                        .withJobSpecificationFile(JOB_SPECIFICATION_FILE.getValue())
-                        .andJobNotes(newJob.getNote())
-        );
+            theActorInTheSpotlight().attemptsTo(
+                    createANewJob()
+                            .withJobTitle(newJob.getJobTitle())
+                            .withJobDescription(newJob.getJobDescription())
+                            .withJobSpecificationFile(JOB_SPECIFICATION_FILE.getValue())
+                            .andJobNotes(newJob.getNote())
+            );
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(),e);
+        }
     }
 
     @Entonces("se mostrara un mensaje de confirmacion del nuevo trabajo creado")
     public void seMostraraUnMensajeDeConfirmacionDelNuevoTrabajoCreado() {
 
-        theActorInTheSpotlight().should(
-                seeThat(theNewJobIsSuccessfullySaved()),
-                seeThat(andTheJobIsOnTheList().withJobTitle(newJob.getJobTitle()))
-        );
+        try {
+            theActorInTheSpotlight().should(
+                    seeThat(theNewJobIsSuccessfullySaved()),
+                    seeThat(andTheJobIsOnTheList().withJobTitle(newJob.getJobTitle()))
+            );
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(),e);
+        }
     }
 }
