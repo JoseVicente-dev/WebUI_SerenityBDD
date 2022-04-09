@@ -6,8 +6,9 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 import java.util.Random;
 
-public class GenerateJob {
-    public static Job generarNuevoTrabajo(String language, String country) {
+public abstract class GenerateJob {
+    public static Job generateNewJob(String language, String country) {
+
 
         Faker faker = Faker.instance(
                 new Locale(language, country),
