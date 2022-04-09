@@ -1,5 +1,3 @@
-# WebUI_SerenityBDD
-
 # Plan de pruebas Screenplay SerenityBDD WebUI
 
 Es necesario verificar el funcionamiento del sitio web [https://opensource-demo.orangehrmlive.com/](https://opensource-demo.orangehrmlive.com/)
