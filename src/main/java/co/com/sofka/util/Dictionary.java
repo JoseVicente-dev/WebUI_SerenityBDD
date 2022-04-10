@@ -2,8 +2,6 @@ package co.com.sofka.util;
 
 public enum Dictionary {
 
-    EMPTY_STRING(""),
-    SPACE_STRING(" "),
 
     SPANISH_CODE_LANGUAGE("es"),
     COUNTRY_CODE("CO"),

@@ -37,7 +37,7 @@ public class CreateJobStepDefinitions extends SetupWebUI {
                     goToJobTitlePage()
             );
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -55,7 +55,7 @@ public class CreateJobStepDefinitions extends SetupWebUI {
                             .andJobNotes(newJob.getNote())
             );
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 
@@ -68,7 +68,7 @@ public class CreateJobStepDefinitions extends SetupWebUI {
                     seeThat(andTheJobIsOnTheList().withJobTitle(newJob.getJobTitle()))
             );
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
         }
     }
 }
